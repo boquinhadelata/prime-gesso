@@ -340,7 +340,9 @@
 
   /* ───────────────────────── da obra bruta ao acabamento ───────────────────────── */
   .comparador{
+    /* limitado a 820px: as fotos dele tem 765px de origem, acima disso o navegador borra */
     position:relative;aspect-ratio:16/10;overflow:hidden;background:#000;
+    max-width:720px;
     border-radius:var(--raio);cursor:ew-resize;user-select:none;touch-action:none;
   }
   .comparador img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -367,7 +369,7 @@
   }
   .tag.a{left:16px} .tag.d{right:16px;background:rgba(233,167,101,.92);color:#2A1706}
   .nota{
-    margin-top:14px;font-size:13px;color:var(--tinta-fraca);
+    margin-top:14px;font-size:13px;color:var(--tinta-fraca);max-width:720px;
     display:flex;align-items:flex-start;gap:8px;max-width:70ch;
   }
   .nota svg{width:15px;height:15px;flex:none;margin-top:3px;color:var(--azul-4)}
