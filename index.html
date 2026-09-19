@@ -3,31 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Prime Gesso — Gesso, Drywall e Pintura em Gramado e Canela</title>
-<meta name="description" content="Gesso convencional, drywall, sancas com iluminação e pintura em Gramado, Canela e região. Orçamento sem compromisso pelo WhatsApp.">
-<meta name="theme-color" content="#16161A">
-<meta property="og:title" content="Prime Gesso — Gramado e Canela">
-<meta property="og:description" content="Seu ambiente novo começa aqui. Gesso, drywall, sancas e pintura na Serra Gaúcha.">
+<title>Prime Gesso &amp; Decoração — Gramado e Região</title>
+<meta name="description" content="Gesso convencional, drywall, sancas com iluminação e pintura em Gramado, Canela e região. Seu projeto, nosso compromisso. Orçamento pelo WhatsApp.">
+<meta name="theme-color" content="#0F2733">
+<meta property="og:title" content="Prime Gesso &amp; Decoração — Gramado">
+<meta property="og:description" content="Seu projeto, nosso compromisso. Gesso, drywall, sancas e pintura na Serra Gaúcha.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  @property --p { syntax:'<number>'; initial-value:0; inherits:true; }
-
   :root{
-    --grafite:#16161A;
-    --grafite-2:#1E1E24;
-    --concreto:#2C2C34;
-    --gesso:#F4F1EC;
-    --gesso-2:#EAE5DE;
-    --luz:#F0B072;
-    --luz-forte:#FFD2A1;
-    --tinta:#14141A;
-    --tinta-fraca:rgba(20,20,26,.58);
-    --claro-fraco:rgba(244,241,236,.60);
-    --linha:rgba(244,241,236,.14);
-    --linha-escura:rgba(20,20,26,.12);
+    /* paleta tirada da marca dele: azul-petróleo + a luz quente da sanca */
+    --azul:#0F2733;
+    --azul-2:#163847;
+    --azul-3:#1F4A5E;
+    --azul-4:#2C6076;
+    --luz:#E9A765;
+    --luz-forte:#FFD6A8;
+    --gesso:#F4F2EE;
+    --gesso-2:#E8E4DD;
+    --tinta:#11212B;
+    --tinta-fraca:rgba(17,33,43,.60);
+    --claro-fraco:rgba(244,242,238,.62);
+    --linha:rgba(244,242,238,.15);
+    --linha-escura:rgba(17,33,43,.13);
     --display:"Sora", system-ui, sans-serif;
     --corpo:"Inter", system-ui, -apple-system, sans-serif;
     --largura:1180px;
@@ -52,91 +52,87 @@
     letter-spacing:.22em; text-transform:uppercase; color:var(--luz);
     display:flex; align-items:center; gap:12px;
   }
-  .rotulo::before{content:"";width:26px;height:1px;background:var(--luz);opacity:.7}
-  .rotulo.escuro{color:#A07240}
-  .rotulo.escuro::before{background:#A07240}
+  .rotulo::before{content:"";width:26px;height:1px;background:var(--luz);opacity:.75}
+  .rotulo.escuro{color:#9A5F24}
+  .rotulo.escuro::before{background:#9A5F24}
 
   h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.02em}
   h2{font-size:clamp(30px,4.6vw,52px)}
   h3{font-size:19px;letter-spacing:-.01em}
   .leve{font-weight:300}
+  .forte{font-weight:600}
+
+  /* ───────── a marca dele: agulhas em SVG + nome em texto de verdade ───────── */
+  .marca{display:flex;align-items:center;gap:13px;color:var(--gesso)}
+  .marca-mark{display:block;height:100%;width:auto;flex:none;color:currentColor}
+  .marca-txt b{
+    display:block;font-family:var(--display);font-size:20px;font-weight:600;
+    letter-spacing:.15em;line-height:1;
+  }
+  .marca-txt small{
+    display:block;font-size:8.5px;font-weight:500;letter-spacing:.26em;
+    color:var(--claro-fraco);margin-top:6px;white-space:nowrap;
+  }
 
   /* ───────────────────────── navegação ───────────────────────── */
   .topo{
     position:fixed; inset:0 0 auto; z-index:60;
-    padding:18px 0; transition:background .45s, backdrop-filter .45s, padding .45s, border-color .45s;
+    padding:14px 0; transition:background .45s, backdrop-filter .45s, padding .45s, border-color .45s;
     border-bottom:1px solid transparent;
   }
-  .topo.fixo{
-    background:rgba(22,22,26,.86); backdrop-filter:blur(14px) saturate(140%);
-    padding:11px 0; border-bottom-color:var(--linha);
+  .topo.solido{
+    background:rgba(15,39,51,.88); backdrop-filter:blur(14px) saturate(140%);
+    padding:9px 0; border-bottom-color:var(--linha);
   }
   .topo .env{display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .marca{display:flex;align-items:center;gap:11px;color:var(--gesso)}
-  .marca .sinal{
-    width:30px;height:30px;flex:none;position:relative;
-    border:1.5px solid var(--luz); border-radius:1px;
-  }
-  .marca .sinal::after{
-    content:"";position:absolute;left:4px;right:4px;bottom:4px;height:8px;
-    border-radius:1px 1px 0 0;
-    background:linear-gradient(to top,var(--luz),rgba(240,176,114,0));
-  }
-  .marca b{font-family:var(--display);font-size:16px;font-weight:600;letter-spacing:.04em;line-height:1}
-  .marca small{display:block;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--claro-fraco);margin-top:3px}
+  .topo .marca{height:46px;flex:none;transition:height .45s}
+  .topo.solido .marca{height:40px}
+  .topo.solido .marca-txt b{font-size:18px}
   .menu{display:flex;align-items:center;gap:30px}
   .menu a{font-size:13.5px;font-weight:500;color:var(--claro-fraco);transition:color .25s}
   .menu a:hover{color:var(--gesso)}
-  @media (max-width:900px){ .menu .some{display:none} }
-  /* celular estreito: a marca não pode quebrar em duas linhas */
-  @media (max-width:420px){
-    .topo .marca small{display:none}
-    .topo .marca b{font-size:14.5px;white-space:nowrap}
-    .topo .marca .sinal{width:26px;height:26px}
-    .topo .btn{padding:10px 15px;font-size:12.5px}
+  @media (max-width:940px){ .menu .some{display:none} }
+  @media (max-width:520px){
+    .topo .marca{height:38px}
+    .topo .marca-txt b{font-size:16px;letter-spacing:.12em}
+    .topo .marca-txt small{display:none}
   }
 
   .btn{
     display:inline-flex;align-items:center;gap:9px;
-    font-family:var(--display);font-size:13.5px;font-weight:600;letter-spacing:.01em;
+    font-family:var(--display);font-size:13.5px;font-weight:600;
     padding:11px 20px;border-radius:var(--raio);
-    background:var(--luz);color:#241503;border:1px solid var(--luz);
+    background:var(--luz);color:#2A1706;border:1px solid var(--luz);
     transition:transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s, background .3s;
     white-space:nowrap;
   }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(240,176,114,.32);background:var(--luz-forte)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(233,167,101,.34);background:var(--luz-forte)}
   .btn.vazado{background:transparent;color:var(--gesso);border-color:var(--linha)}
-  .btn.vazado:hover{background:rgba(244,241,236,.07);border-color:rgba(244,241,236,.4);box-shadow:none}
+  .btn.vazado:hover{background:rgba(244,242,238,.08);border-color:rgba(244,242,238,.42);box-shadow:none}
   .btn.grande{padding:15px 28px;font-size:15px}
   .btn svg{width:16px;height:16px;flex:none}
+  @media (max-width:420px){ .topo .btn{padding:10px 15px;font-size:12.5px} }
 
   /* ───────────────────────── hero ───────────────────────── */
   .hero{
     position:relative; min-height:100svh; display:flex; align-items:flex-end;
-    background:var(--grafite); color:var(--gesso); overflow:hidden;
-    padding:140px 0 56px;
-  }
-  .hero .fundo{position:absolute;inset:0;z-index:0}
-  .hero .fundo img{
-    width:100%;height:100%;object-fit:cover;
-    filter:grayscale(.35) brightness(.42) contrast(1.12);
-    transform:scale(1.06);
-    animation:respirar 26s ease-in-out infinite alternate;
-  }
-  @keyframes respirar{ to{transform:scale(1.13)} }
-  .hero .fundo::after{
-    content:"";position:absolute;inset:0;
+    color:var(--gesso); overflow:hidden; padding:150px 0 56px;
     background:
-      linear-gradient(to top, var(--grafite) 4%, rgba(22,22,26,.72) 38%, rgba(22,22,26,.30) 72%, rgba(22,22,26,.55) 100%),
-      radial-gradient(120% 85% at 78% 12%, rgba(240,176,114,.20), transparent 58%);
+      radial-gradient(130% 90% at 76% 8%, rgba(233,167,101,.22), transparent 56%),
+      linear-gradient(170deg, var(--azul-3) 0%, var(--azul-2) 38%, var(--azul) 100%);
   }
-  /* a luz que varre a superfície — o gesso só existe para ser visto */
+  /* a marca dele, gigante e fantasma, virando textura de fundo */
+  .hero .fantasma{
+    position:absolute; right:-6%; top:48%; transform:translateY(-50%);
+    height:min(96%, 760px); color:var(--gesso); opacity:.055; pointer-events:none; z-index:0;
+  }
+  /* a luz que varre a superfície — é o que o gesso faz */
   .varredura{
     position:absolute; inset:-25% -45%; z-index:1; pointer-events:none;
     background:linear-gradient(102deg,
-      transparent 36%, rgba(255,210,161,.06) 43%,
-      rgba(255,214,166,.30) 50%,
-      rgba(255,210,161,.06) 57%, transparent 64%);
+      transparent 36%, rgba(255,214,168,.05) 43%,
+      rgba(255,214,168,.26) 50%,
+      rgba(255,214,168,.05) 57%, transparent 64%);
     mix-blend-mode:screen;
     animation:varrer 11s cubic-bezier(.45,0,.25,1) infinite;
   }
@@ -144,11 +140,15 @@
     0%{transform:translate3d(-52%,0,0)}
     58%,100%{transform:translate3d(52%,0,0)}
   }
+  .hero::after{
+    content:"";position:absolute;inset:auto 0 0;height:36%;z-index:1;pointer-events:none;
+    background:linear-gradient(to top, var(--azul), transparent);
+  }
 
   .hero .env{position:relative;z-index:2}
   .hero h1{
-    font-size:clamp(38px,7.4vw,88px); font-weight:300; letter-spacing:-.035em;
-    max-width:14ch; margin:26px 0 0;
+    font-size:clamp(38px,7.2vw,86px); font-weight:300; letter-spacing:-.035em;
+    max-width:15ch; margin:26px 0 0;
   }
   .hero h1 b{font-weight:600;color:var(--luz-forte)}
   .linha{display:block;overflow:hidden}
@@ -157,15 +157,15 @@
   .hero .rotulo{animation:aparecer .9s ease both}
   @keyframes aparecer{ from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
   .hero p.sub{
-    max-width:46ch;margin-top:24px;font-size:clamp(15px,1.7vw,18px);
+    max-width:48ch;margin-top:24px;font-size:clamp(15px,1.7vw,18px);
     color:var(--claro-fraco);animation:aparecer 1s ease .55s both;
   }
   .hero .acoes{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px;animation:aparecer 1s ease .72s both}
 
   .regioes{
     display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;
-    margin-top:52px;padding-top:24px;border-top:1px solid var(--linha);
-    font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:rgba(244,241,236,.45);
+    margin-top:50px;padding-top:24px;border-top:1px solid var(--linha);
+    font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:rgba(244,242,238,.46);
     animation:aparecer 1s ease .9s both;
   }
   .regioes b{color:var(--luz);font-weight:600}
@@ -179,18 +179,15 @@
   .grade-serv{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha-escura)}
   @media (max-width:980px){ .grade-serv{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:560px){ .grade-serv{grid-template-columns:1fr} }
-  .serv{
-    background:var(--gesso); padding:34px 26px 30px; position:relative; overflow:hidden;
-    transition:background .4s;
-  }
+  .serv{background:var(--gesso);padding:34px 26px 30px;position:relative;overflow:hidden;transition:background .4s}
   .serv::before{
     content:"";position:absolute;left:0;right:0;top:0;height:2px;
     background:var(--luz);transform:scaleX(0);transform-origin:left;
     transition:transform .55s cubic-bezier(.16,1,.3,1);
   }
-  .serv:hover{background:#FBF9F6}
+  .serv:hover{background:#FBFAF8}
   .serv:hover::before{transform:scaleX(1)}
-  .serv .ico{width:40px;height:40px;margin-bottom:22px;color:#A07240}
+  .serv .ico{width:40px;height:40px;margin-bottom:22px;color:var(--azul-4)}
   .serv .ico svg{width:100%;height:100%}
   .serv h3{margin-bottom:9px}
   .serv p{font-size:14.5px;color:var(--tinta-fraca)}
@@ -200,14 +197,11 @@
   }
 
   /* ───────────── seção assinatura: a luz que o gesso desenha ───────────── */
-  .luz-secao{background:var(--grafite);color:var(--gesso);position:relative}
+  .luz-secao{background:var(--azul);color:var(--gesso);position:relative}
   .palco{height:330vh;position:relative}
-  .painel{
-    position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden;
-  }
+  .painel{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden}
   .painel .env{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,70px);align-items:center;width:min(100% - 44px, var(--largura))}
   @media (max-width:860px){
-    /* o painel precisa caber em 100svh com o topo fixo por cima */
     .painel{padding-top:64px}
     .painel .env{grid-template-columns:1fr;gap:22px}
     .palco{height:300vh}
@@ -219,14 +213,12 @@
     .desenho{max-width:420px;margin-inline:auto}
     .cota text{font-size:11px}
     .cota.clara text{font-size:12px}
-    /* no celular só o passo da vez abre — foca e ainda cabe na tela */
     .passo span{
       display:block;max-height:0;overflow:hidden;opacity:0;
-      transition:max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s, margin .4s;
+      transition:max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s;
     }
     .passo.on span{max-height:120px;opacity:1}
   }
-  /* tela muito baixa: sem palco sticky, tudo aberto de uma vez */
   @media (max-width:860px) and (max-height:820px){
     .palco{height:auto}
     .painel{position:static;height:auto;overflow:visible;padding:96px 0 74px}
@@ -236,7 +228,7 @@
   .passos{margin-top:30px;display:grid;gap:2px}
   .passo{
     padding:16px 0 16px 20px;border-left:2px solid var(--linha);
-    opacity:.3;transition:opacity .5s, border-color .5s, transform .5s;
+    opacity:.32;transition:opacity .5s, border-color .5s, transform .5s;
     transform:translateX(-4px);
   }
   .passo.on{opacity:1;border-left-color:var(--luz);transform:translateX(0)}
@@ -245,13 +237,10 @@
 
   .desenho{position:relative;aspect-ratio:400/215;width:100%}
   .desenho svg{width:100%;height:100%;overflow:visible}
-  .traco{
-    fill:none;stroke:var(--gesso);stroke-width:2;
-    stroke-linecap:butt;stroke-linejoin:miter;
-  }
-  .traco.fino{stroke-width:1;opacity:.28;stroke-dasharray:5 6}
-  .traco.pendural{stroke-width:1;opacity:.42;stroke-dasharray:3 4;stroke:rgba(244,241,236,.75)}
-  .massa{fill:rgba(244,241,236,.10);opacity:0}
+  .traco{fill:none;stroke:var(--gesso);stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter}
+  .traco.fino{stroke-width:1;opacity:.3;stroke-dasharray:5 6}
+  .traco.pendural{stroke-width:1;opacity:.45;stroke-dasharray:3 4;stroke:rgba(244,242,238,.8)}
+  .massa{fill:rgba(244,242,238,.11);opacity:0}
   .brilho{opacity:0}
   .cota{
     font-family:var(--display);font-size:9.5px;font-weight:600;fill:var(--luz);
@@ -259,7 +248,7 @@
   }
   .cota.clara text{fill:#FFF0DE;font-size:10.5px;letter-spacing:.2em}
 
-  /* ───────────────────────── antes / depois ───────────────────────── */
+  /* ───────────────────────── da obra bruta ao acabamento ───────────────────────── */
   .comparador{
     position:relative;aspect-ratio:16/10;overflow:hidden;background:#000;
     border-radius:var(--raio);cursor:ew-resize;user-select:none;touch-action:none;
@@ -282,37 +271,32 @@
   .comparador .seta svg{width:13px;height:13px}
   .tag{
     position:absolute;bottom:16px;z-index:2;
-    font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
     padding:7px 13px;border-radius:var(--raio);
-    background:rgba(22,22,26,.72);color:var(--gesso);backdrop-filter:blur(6px);
+    background:rgba(15,39,51,.78);color:var(--gesso);backdrop-filter:blur(6px);
   }
-  .tag.a{left:16px} .tag.d{right:16px;background:rgba(240,176,114,.9);color:#241503}
+  .tag.a{left:16px} .tag.d{right:16px;background:rgba(233,167,101,.92);color:#2A1706}
+  .nota{
+    margin-top:14px;font-size:13px;color:var(--tinta-fraca);
+    display:flex;align-items:flex-start;gap:8px;max-width:70ch;
+  }
+  .nota svg{width:15px;height:15px;flex:none;margin-top:3px;color:var(--azul-4)}
 
   /* ───────────────────────── obras ───────────────────────── */
-  .galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  .galeria figure{position:relative;overflow:hidden;background:#ddd;border-radius:var(--raio)}
-  .galeria img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform 1.1s cubic-bezier(.16,1,.3,1), filter .6s;
-  }
-  .galeria figure:hover img{transform:scale(1.06)}
+  .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media (max-width:860px){ .galeria{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:460px){ .galeria{grid-template-columns:1fr} }
+  .galeria figure{position:relative;overflow:hidden;background:var(--gesso-2);border-radius:var(--raio);aspect-ratio:4/5}
+  .galeria img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .galeria figure:hover img{transform:scale(1.05)}
   .galeria figcaption{
-    position:absolute;inset:auto 0 0;padding:34px 16px 14px;
-    background:linear-gradient(to top,rgba(22,22,26,.88),transparent);
-    color:var(--gesso);font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.02em;
+    position:absolute;inset:auto 0 0;padding:40px 16px 15px;
+    background:linear-gradient(to top,rgba(15,39,51,.92),transparent);
+    color:var(--gesso);font-family:var(--display);font-size:13px;font-weight:600;
     opacity:0;transform:translateY(8px);transition:opacity .45s, transform .45s;
   }
   .galeria figure:hover figcaption{opacity:1;transform:translateY(0)}
-  /* todas 4/3; só o retrato ocupa duas linhas e estica para preencher */
-  .galeria figure{aspect-ratio:4/3}
-  .galeria .g-alta{grid-row:span 2;aspect-ratio:auto}
-  @media (max-width:860px){
-    .galeria{grid-template-columns:repeat(2,1fr)}
-  }
-  @media (max-width:520px){
-    .galeria{grid-template-columns:1fr}
-    .galeria .g-alta{grid-row:auto;aspect-ratio:3/4}
-  }
+  @media (hover:none){ .galeria figcaption{opacity:1;transform:none} }
 
   /* ───────────────────────── compromissos ───────────────────────── */
   .promessas{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,38px)}
@@ -324,12 +308,12 @@
 
   /* ───────────────────────── processo ───────────────────────── */
   .processo{background:var(--gesso-2)}
-  .trilha{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(20,20,26,.1);margin-top:12px}
+  .trilha{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(17,33,43,.11);margin-top:12px}
   @media (max-width:860px){ .trilha{grid-template-columns:1fr} }
   .etapa{background:var(--gesso-2);padding:30px 24px;position:relative}
   .etapa em{
     font-family:var(--display);font-style:normal;font-size:38px;font-weight:700;
-    color:transparent;-webkit-text-stroke:1.2px rgba(20,20,26,.22);display:block;line-height:1;margin-bottom:16px;
+    color:transparent;-webkit-text-stroke:1.2px rgba(17,33,43,.24);display:block;line-height:1;margin-bottom:16px;
   }
   .etapa b{display:block;font-family:var(--display);font-size:16.5px;font-weight:600;margin-bottom:7px}
   .etapa p{font-size:14.5px;color:var(--tinta-fraca)}
@@ -343,10 +327,9 @@
     transition:color .3s;
   }
   .item summary::-webkit-details-marker{display:none}
-  .item summary:hover{color:#A07240}
+  .item summary:hover{color:var(--azul-4)}
   .item summary::after{
-    content:"";position:absolute;right:6px;top:50%;width:13px;height:13px;
-    margin-top:-6px;
+    content:"";position:absolute;right:6px;top:50%;width:13px;height:13px;margin-top:-6px;
     background:
       linear-gradient(var(--tinta),var(--tinta)) center/100% 1.6px no-repeat,
       linear-gradient(var(--tinta),var(--tinta)) center/1.6px 100% no-repeat;
@@ -357,34 +340,31 @@
   @keyframes abrir{ from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
 
   /* ───────────────────────── chamada final ───────────────────────── */
-  .final{
-    background:var(--grafite);color:var(--gesso);position:relative;overflow:hidden;
-    text-align:center;
-  }
+  .final{background:var(--azul);color:var(--gesso);position:relative;overflow:hidden;text-align:center}
   .final .fundo{position:absolute;inset:0;z-index:0}
-  .final .fundo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.5) brightness(.3)}
+  .final .fundo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.34)}
   .final .fundo::after{
     content:"";position:absolute;inset:0;
-    background:radial-gradient(90% 70% at 50% 100%, rgba(240,176,114,.22), transparent 62%), rgba(22,22,26,.5);
+    background:radial-gradient(92% 72% at 50% 100%, rgba(233,167,101,.24), transparent 62%), rgba(15,39,51,.58);
   }
   .final .env{position:relative;z-index:2}
-  .final h2{max-width:18ch;margin:20px auto 18px}
-  .final p{max-width:48ch;margin:0 auto 34px;color:var(--claro-fraco)}
+  .final h2{max-width:19ch;margin:20px auto 18px}
+  .final p{max-width:50ch;margin:0 auto 34px;color:var(--claro-fraco)}
   .final .rotulo{justify-content:center}
 
-  .rodape{background:var(--grafite-2);color:var(--claro-fraco);padding:54px 0 30px;font-size:14px}
+  .rodape{background:var(--azul-2);color:var(--claro-fraco);padding:54px 0 30px;font-size:14px}
   .rodape .env{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:38px}
   @media (max-width:760px){ .rodape .env{grid-template-columns:1fr;gap:28px} }
   .rodape h4{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gesso);margin-bottom:14px}
   .rodape a:hover{color:var(--luz)}
   .rodape ul{list-style:none;display:grid;gap:8px}
+  .rodape .marca{height:56px;margin-bottom:18px}
   .creditos{
     margin-top:42px;padding-top:22px;border-top:1px solid var(--linha);
     display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:12.5px;
-    color:rgba(244,241,236,.4);
+    color:rgba(244,242,238,.42);
   }
 
-  /* zap flutuante */
   .zap{
     position:fixed;right:18px;bottom:18px;z-index:70;
     width:56px;height:56px;border-radius:50%;
@@ -398,7 +378,6 @@
   .zap svg{width:28px;height:28px}
   @keyframes pular{ from{transform:scale(.4);opacity:0} to{transform:scale(1);opacity:1} }
 
-  /* revelação por scroll — nunca esconde conteúdo se o JS falhar */
   .revela{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
   .revela.vista{opacity:1;transform:none}
   .revela.d1{transition-delay:.08s} .revela.d2{transition-delay:.16s}
@@ -418,9 +397,12 @@
 
 <header class="topo" id="topo">
   <div class="env">
-    <a class="marca" href="#inicio" aria-label="Prime Gesso, início">
-      <span class="sinal" aria-hidden="true"></span>
-      <span><b>PRIME GESSO</b><small>Gramado · Canela</small></span>
+    <a class="marca" href="#inicio" aria-label="Prime Gesso e Decoração, início">
+      <svg class="marca-mark" viewBox="4 4 98 90" aria-hidden="true">
+        <path fill="currentColor" d="M24.95 90V75L26 60l1.05 15V90ZM29.45 90V67L30.5 52l1.05 15V90ZM33.95 90V60L35 45l1.05 15V90ZM38.45 90V55L39.5 40l1.05 15V90ZM43.95 90V37L45 22l1.05 15V90ZM47.95 90V26L49 11l1.05 15V90ZM51.95 90V21L53 6l1.05 15V90ZM55.95 90V28L57 13l1.05 15V90ZM59.95 90V41L61 26l1.05 15V90ZM65.95 90V55L67 40l1.05 15V90ZM70.45 90V61L71.5 46l1.05 15V90ZM74.95 90V68L76 53l1.05 15V90ZM79.45 90V76L80.5 61l1.05 15V90Z"/>
+        <path d="M6 90.7H100.5" stroke="currentColor" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="marca-txt"><b>PRIME</b><small>GESSO &amp; DECORAÇÃO</small></span>
     </a>
     <nav class="menu">
       <a class="some" href="#servicos">Serviços</a>
@@ -428,7 +410,7 @@
       <a class="some" href="#obras">Obras</a>
       <a class="some" href="#perguntas">Dúvidas</a>
       <a class="btn" href="https://wa.me/5554993674280?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m4.52 10.4c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.55-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.65 4.21 3.71.59.26 1.05.41 1.4.52.59.19 1.13.16 1.55.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.11-.22-.17-.47-.29"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m4.52 12.07c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.55-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.65 4.21 3.71.59.26 1.05.41 1.4.52.59.19 1.13.16 1.55.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.11-.22-.17-.47-.29"/></svg>
         Orçamento
       </a>
     </nav>
@@ -437,16 +419,18 @@
 
 <!-- ───────────────────────── HERO ───────────────────────── -->
 <section class="hero" id="inicio">
-  <div class="fundo"><img src="img/textura-gesso.jpg" alt="Parede de gesso recém-desempenada sob luz rasante" fetchpriority="high"></div>
+  <svg class="fantasma" viewBox="4 4 98 90" aria-hidden="true">
+    <path fill="currentColor" d="M24.95 90V75L26 60l1.05 15V90ZM29.45 90V67L30.5 52l1.05 15V90ZM33.95 90V60L35 45l1.05 15V90ZM38.45 90V55L39.5 40l1.05 15V90ZM43.95 90V37L45 22l1.05 15V90ZM47.95 90V26L49 11l1.05 15V90ZM51.95 90V21L53 6l1.05 15V90ZM55.95 90V28L57 13l1.05 15V90ZM59.95 90V41L61 26l1.05 15V90ZM65.95 90V55L67 40l1.05 15V90ZM70.45 90V61L71.5 46l1.05 15V90ZM74.95 90V68L76 53l1.05 15V90ZM79.45 90V76L80.5 61l1.05 15V90Z"/>
+    <path d="M6 90.7H100.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  </svg>
   <div class="varredura" aria-hidden="true"></div>
   <div class="env">
     <p class="rotulo">Gramado · Canela · Serra Gaúcha</p>
     <h1>
-      <span class="linha"><span style="animation-delay:.12s">O acabamento</span></span>
-      <span class="linha"><span style="animation-delay:.24s">que <b>muda a luz</b></span></span>
-      <span class="linha"><span style="animation-delay:.36s">da sua casa.</span></span>
+      <span class="linha"><span style="animation-delay:.12s">Seu projeto,</span></span>
+      <span class="linha"><span style="animation-delay:.26s"><b>nosso compromisso</b>.</span></span>
     </h1>
-    <p class="sub">Gesso convencional, drywall, sancas com iluminação e pintura. Da primeira medida à última demão — obra limpa, prazo combinado e acabamento que você vê de perto sem achar defeito.</p>
+    <p class="sub">Transformamos ambientes com gesso convencional, drywall, sancas iluminadas e pintura. Da ideia inicial à entrega final — com qualidade, organização e um resultado impecável.</p>
     <div class="acoes">
       <a class="btn grande" href="https://wa.me/5554993674280?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m4.52 12.07c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.55-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.65 4.21 3.71.59.26 1.05.41 1.4.52.59.19 1.13.16 1.55.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.11-.22-.17-.47-.29"/></svg>
@@ -467,7 +451,7 @@
   <div class="env">
     <div class="cabeca revela">
       <p class="rotulo escuro">O que fazemos</p>
-      <h2 class="leve">Quatro serviços que<br>terminam <b style="font-weight:600">no mesmo lugar</b>.</h2>
+      <h2 class="leve">Quatro serviços que<br>terminam <b class="forte">no mesmo lugar</b>.</h2>
       <p>Um ambiente pronto. Fazemos a estrutura, o fechamento, o acabamento e a pintura — então ninguém empurra responsabilidade para o próximo. Você fala com uma pessoa só do começo ao fim.</p>
     </div>
 
@@ -493,7 +477,7 @@
       <article class="serv">
         <span class="num">04</span>
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 6h24v12H12z"/><path d="M24 18v6M20 24h8v6h-8z"/><path d="M24 30v12"/><path d="M12 12h24" opacity=".45"/></svg></div>
-        <h3>Pintura</h3>
+        <h3>Pintura e acabamento</h3>
         <p>Massa, lixa e demão na quantidade certa. Parede lisa de verdade, sem emenda aparecendo na luz da tarde.</p>
       </article>
     </div>
@@ -507,7 +491,7 @@
       <div class="env">
         <div class="luz-texto">
           <p class="rotulo">Como fazemos</p>
-          <h2 class="leve">A sanca não é<br>enfeite. É o que<br><b style="font-weight:600;color:var(--luz-forte)">segura a luz</b>.</h2>
+          <h2 class="leve">A sanca não é<br>enfeite. É o que<br><b class="forte" style="color:var(--luz-forte)">segura a luz</b>.</h2>
           <div class="passos">
             <div class="passo" data-passo="0">
               <b>1 · Estrutura</b>
@@ -527,59 +511,48 @@
         <div class="desenho">
           <svg viewBox="0 0 400 215" role="img" aria-label="Corte de uma sanca de gesso aberta com fita de LED lavando a laje de luz">
             <defs>
-              <!-- o centro do gradiente fica na própria fita: é de lá que a luz sai -->
               <radialGradient id="gLavagem" cx="50%" cy="50%" r="50%">
                 <stop offset="0%"   stop-color="#FFE0BC" stop-opacity=".70"/>
                 <stop offset="28%"  stop-color="#F6BE83" stop-opacity=".34"/>
-                <stop offset="62%"  stop-color="#F0B072" stop-opacity=".12"/>
-                <stop offset="100%" stop-color="#F0B072" stop-opacity="0"/>
+                <stop offset="62%"  stop-color="#E9A765" stop-opacity=".12"/>
+                <stop offset="100%" stop-color="#E9A765" stop-opacity="0"/>
               </radialGradient>
               <radialGradient id="gFoco" cx="50%" cy="50%" r="50%">
                 <stop offset="0%"   stop-color="#FFF0DE" stop-opacity=".95"/>
-                <stop offset="100%" stop-color="#FFD2A1" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#FFD6A8" stop-opacity="0"/>
               </radialGradient>
-              <!-- a luz só existe acima do gesso — é exatamente isso que a sanca faz -->
               <clipPath id="acimaDoGesso">
                 <path d="M55 26 H384 V148 H196 V100 H55 Z"/>
               </clipPath>
             </defs>
 
-            <!-- laje e parede -->
             <g id="ambiente">
               <path class="traco fino" d="M55 28 H380"/>
               <path class="traco fino" d="M55 28 V200"/>
             </g>
 
-            <!-- estrutura: pendurais descendo da laje -->
             <path class="traco pendural" id="estrutura" d="M95 28 V100M130 28 V100M165 28 V100M235 28 V148M295 28 V148M350 28 V148"/>
 
-            <!-- luz indireta lavando a laje -->
             <g class="brilho" id="luzSanca" clip-path="url(#acimaDoGesso)">
               <ellipse cx="176" cy="96" rx="205" ry="80" fill="url(#gLavagem)"/>
               <ellipse cx="176" cy="95" rx="46"  ry="17" fill="url(#gFoco)"/>
             </g>
 
-            <!-- corpo do gesso (a massa) -->
             <path class="massa" id="massa" d="M55 100 H196 V148 H380 V156 H188 V108 H55 Z"/>
-
-            <!-- perfil do gesso: sanca aberta -->
             <path class="traco" id="perfil" d="M55 100 H196 V148 H380"/>
+            <rect id="fita" x="162" y="93" width="28" height="6" rx="1.5" fill="#22404F"/>
 
-            <!-- fita de LED, escondida atrás do bico da sanca -->
-            <rect id="fita" x="162" y="93" width="28" height="6" rx="1.5" fill="#2A2A32"/>
-
-            <!-- chamadas, cada uma no seu tempo e no seu canto -->
             <g class="cota" id="cota1">
-              <path d="M235 52 H246" stroke="#F0B072" stroke-width=".9" fill="none" opacity=".75"/>
-              <circle cx="235" cy="52" r="1.8" fill="#F0B072"/>
+              <path d="M235 52 H246" stroke="#E9A765" stroke-width=".9" fill="none" opacity=".75"/>
+              <circle cx="235" cy="52" r="1.8" fill="#E9A765"/>
               <text x="250" y="55">PERFIS NIVELADOS</text>
             </g>
             <g class="cota" id="cota4">
-              <path d="M300 149 V172" stroke="#F0B072" stroke-width=".9" fill="none" opacity=".75"/>
+              <path d="M300 149 V172" stroke="#E9A765" stroke-width=".9" fill="none" opacity=".75"/>
               <text x="300" y="186" text-anchor="middle">FORRO DE GESSO</text>
             </g>
             <g class="cota" id="cota2">
-              <path d="M192 94 L218 80 H246" stroke="#F0B072" stroke-width=".9" fill="none" opacity=".75"/>
+              <path d="M192 94 L218 80 H246" stroke="#E9A765" stroke-width=".9" fill="none" opacity=".75"/>
               <text x="250" y="83">FITA DE LED</text>
             </g>
             <g class="cota clara" id="cota3">
@@ -592,28 +565,32 @@
   </div>
 </section>
 
-<!-- ───────────────────────── ANTES / DEPOIS ───────────────────────── -->
+<!-- ───────────────────── DA OBRA BRUTA AO ACABAMENTO ───────────────────── -->
 <section class="secao" id="antes">
   <div class="env">
     <div class="cabeca revela">
-      <p class="rotulo escuro">Antes e depois</p>
-      <h2 class="leve">Arraste e veja<br>a <b style="font-weight:600">diferença</b>.</h2>
-      <p>O mesmo ambiente, a mesma metragem, a mesma janela. O que mudou foi o teto e a parede.</p>
+      <p class="rotulo escuro">As duas pontas do serviço</p>
+      <h2 class="leve">Da obra bruta<br>ao <b class="forte">acabamento</b>.</h2>
+      <p>Arraste para ver as duas fases do trabalho: o gesso ainda cru, esperando massa, e o ambiente entregue com sanca, luz e pintura.</p>
     </div>
     <div class="comparador revela d1" id="comparador">
-      <img class="antes" src="img/antes-sala.jpg" alt="Ambiente antes: sala em obra, sem forro e sem pintura">
-      <img class="depois" src="img/sala-sanca.jpg" alt="Ambiente depois: sala com forro de gesso, sanca e iluminação embutida">
-      <span class="tag a">Antes</span>
-      <span class="tag d">Depois</span>
+      <img class="antes" src="img/bruto.jpg" alt="Obra da Prime Gesso com o gesso ainda bruto, antes do acabamento">
+      <img class="depois" src="img/acabado.jpg" alt="Ambiente entregue pela Prime Gesso, com forro, sanca iluminada e pintura">
+      <span class="tag a">Obra bruta</span>
+      <span class="tag d">Entregue</span>
       <div class="puxador" aria-hidden="true"></div>
       <div class="seta" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
       </div>
       <input type="range" min="0" max="100" value="50" id="faixa"
-             aria-label="Comparar antes e depois"
+             aria-label="Comparar obra bruta e acabamento"
              style="position:absolute;inset:auto 0 0;width:100%;opacity:0;height:100%;cursor:ew-resize;z-index:5;margin:0">
     </div>
+    <p class="nota revela d2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.4" stroke-linecap="round"/></svg>
+      São duas obras diferentes, mostrando as duas fases do mesmo serviço — não o antes e depois do mesmo ambiente.
+    </p>
   </div>
 </section>
 
@@ -622,17 +599,14 @@
   <div class="env">
     <div class="cabeca revela">
       <p class="rotulo escuro">Obras</p>
-      <h2 class="leve">Trabalho entregue,<br><b style="font-weight:600">não renderizado</b>.</h2>
+      <h2 class="leve">Obras <b class="forte">selecionadas</b>.</h2>
+      <p>Trabalho entregue em Gramado e região. Cada projeto tratado com atenção aos detalhes, da ideia inicial à entrega final.</p>
     </div>
     <div class="galeria revela d1">
-      <figure class="g-alta"><img src="img/escada-led.jpg" alt="Escada com iluminação linear embutida no gesso" loading="lazy"><figcaption>Escada com rasgo de luz · Gramado</figcaption></figure>
-      <figure><img src="img/living-amplo.jpg" alt="Living com forro de gesso e sanca perimetral" loading="lazy"><figcaption>Living integrado · Canela</figcaption></figure>
-      <figure><img src="img/teto-linhas.jpg" alt="Teto com desenho linear de luz em gesso" loading="lazy"><figcaption>Teto desenhado · Nova Petrópolis</figcaption></figure>
-      <figure><img src="img/quarto-pendente.jpg" alt="Quarto com forro de gesso e pendentes" loading="lazy"><figcaption>Suíte · Gramado</figcaption></figure>
-      <figure><img src="img/cozinha-branca.jpg" alt="Cozinha com forro e iluminação embutida" loading="lazy"><figcaption>Cozinha · Três Coroas</figcaption></figure>
-      <figure><img src="img/teto-cofre.jpg" alt="Teto rebaixado com sanca e luz quente" loading="lazy"><figcaption>Sanca fechada · Canela</figcaption></figure>
-      <figure><img src="img/moldura-classica.jpg" alt="Moldura de gesso clássica em teto" loading="lazy"><figcaption>Moldura clássica · Gramado</figcaption></figure>
-      <figure><img src="img/entrega-vazio.jpg" alt="Apartamento entregue com acabamento em gesso e pintura" loading="lazy"><figcaption>Entrega de obra · Canela</figcaption></figure>
+      <figure><img src="img/obra-jantar.jpg" alt="Sala de jantar com painéis de gesso na parede e spots embutidos" loading="lazy"><figcaption>Sala de jantar com boiserie e spots</figcaption></figure>
+      <figure><img src="img/obra-living.jpg" alt="Living integrado com forro de gesso, sanca e fita de LED" loading="lazy"><figcaption>Living integrado com sanca de LED</figcaption></figure>
+      <figure><img src="img/obra-rasgo.jpg" alt="Ambiente entregue com rasgo de luz retangular no forro de gesso" loading="lazy"><figcaption>Rasgo de luz no forro</figcaption></figure>
+      <figure><img src="img/obra-pedra.jpg" alt="Parede revestida em pedra com sanca iluminada no teto" loading="lazy"><figcaption>Parede revestida com sanca iluminada</figcaption></figure>
     </div>
   </div>
 </section>
@@ -642,11 +616,11 @@
   <div class="env">
     <div class="cabeca revela">
       <p class="rotulo escuro">Nosso combinado</p>
-      <h2 class="leve">Quatro coisas que<br>ficam <b style="font-weight:600">por escrito</b>.</h2>
+      <h2 class="leve">Quatro coisas que<br>ficam <b class="forte">por escrito</b>.</h2>
     </div>
     <div class="promessas revela d1">
       <div class="promessa"><b>Orçamento em 24h</b><span>Você manda as medidas ou marca a visita. A proposta chega em um dia útil, detalhada por item.</span></div>
-      <div class="promessa"><b>Obra protegida</b><span>Móvel coberto, piso forrado e pó contido. Limpeza grossa feita por nós ao fim de cada dia.</span></div>
+      <div class="promessa"><b>Obra organizada</b><span>Móvel coberto, piso forrado e pó contido. Limpeza grossa feita por nós ao fim de cada dia.</span></div>
       <div class="promessa"><b>Prazo com data</b><span>Data de início e de entrega no papel, antes de começar. Sem "semana que vem" solto.</span></div>
       <div class="promessa"><b>Retorno garantido</b><span>Trinca de acomodação ou retoque no primeiro ano, voltamos e resolvemos sem cobrar.</span></div>
     </div>
@@ -658,7 +632,7 @@
   <div class="env">
     <div class="cabeca revela">
       <p class="rotulo escuro">Como funciona</p>
-      <h2 class="leve">Da mensagem até<br>a <b style="font-weight:600">chave na mão</b>.</h2>
+      <h2 class="leve">Da mensagem até<br>a <b class="forte">chave na mão</b>.</h2>
     </div>
     <div class="trilha revela d1">
       <div class="etapa"><em>01</em><b>Você chama</b><p>Manda a foto do ambiente no WhatsApp. Já dá para adiantar muita coisa por ali.</p></div>
@@ -674,7 +648,7 @@
   <div class="env">
     <div class="cabeca revela">
       <p class="rotulo escuro">Dúvidas</p>
-      <h2 class="leve">O que todo mundo<br><b style="font-weight:600">pergunta antes</b>.</h2>
+      <h2 class="leve">O que todo mundo<br><b class="forte">pergunta antes</b>.</h2>
     </div>
     <div class="faq revela d1">
       <details class="item">
@@ -707,10 +681,10 @@
 
 <!-- ───────────────────────── CHAMADA FINAL ───────────────────────── -->
 <section class="secao final">
-  <div class="fundo"><img src="img/estar-sanca.jpg" alt="" loading="lazy"></div>
+  <div class="fundo"><img src="img/chamada.jpg" alt="" loading="lazy"></div>
   <div class="env">
     <p class="rotulo revela">Seu ambiente novo começa aqui</p>
-    <h2 class="leve revela d1">Manda uma foto do teto.<br><b style="font-weight:600;color:var(--luz-forte)">A gente te diz o que dá para fazer.</b></h2>
+    <h2 class="leve revela d1">Manda uma foto do teto.<br><b class="forte" style="color:var(--luz-forte)">A gente te diz o que dá para fazer.</b></h2>
     <p class="revela d2">Sem compromisso, sem insistência. Se o que você quer não compensa, a gente fala isso também.</p>
     <a class="btn grande revela d3" href="https://wa.me/5554993674280?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m4.52 12.07c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.84-.2-.48-.4-.42-.55-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.65 4.21 3.71.59.26 1.05.41 1.4.52.59.19 1.13.16 1.55.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.11-.22-.17-.47-.29"/></svg>
@@ -722,16 +696,23 @@
 <footer class="rodape">
   <div class="env">
     <div>
-      <a class="marca" href="#inicio" style="margin-bottom:14px"><span class="sinal" aria-hidden="true"></span><span><b>PRIME GESSO</b><small>Gramado · Canela</small></span></a>
-      <p style="max-width:34ch;margin-top:14px">Gesso convencional, drywall, sancas com iluminação e pintura na Serra Gaúcha.</p>
+      <a class="marca" href="#inicio" aria-label="Prime Gesso e Decoração">
+        <svg class="marca-mark" viewBox="4 4 98 90" aria-hidden="true">
+          <path fill="currentColor" d="M24.95 90V75L26 60l1.05 15V90ZM29.45 90V67L30.5 52l1.05 15V90ZM33.95 90V60L35 45l1.05 15V90ZM38.45 90V55L39.5 40l1.05 15V90ZM43.95 90V37L45 22l1.05 15V90ZM47.95 90V26L49 11l1.05 15V90ZM51.95 90V21L53 6l1.05 15V90ZM55.95 90V28L57 13l1.05 15V90ZM59.95 90V41L61 26l1.05 15V90ZM65.95 90V55L67 40l1.05 15V90ZM70.45 90V61L71.5 46l1.05 15V90ZM74.95 90V68L76 53l1.05 15V90ZM79.45 90V76L80.5 61l1.05 15V90Z"/>
+          <path d="M6 90.7H100.5" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+        <span class="marca-txt"><b>PRIME</b><small>GESSO &amp; DECORAÇÃO</small></span>
+      </a>
+      <p style="max-width:36ch">Seu projeto, nosso compromisso. Gesso, drywall, sancas iluminadas e pintura na Serra Gaúcha.</p>
     </div>
     <div>
       <h4>Contato</h4>
       <ul>
         <li><a href="https://wa.me/5554993674280" target="_blank" rel="noopener">WhatsApp · 54 99367-4280</a></li>
         <li><a href="https://www.instagram.com/prime_gesso_oficial/" target="_blank" rel="noopener">@prime_gesso_oficial</a></li>
+        <li>R. 10 de Dezembro, 740 — Casa B</li>
+        <li>Carazal · Gramado/RS</li>
         <li>Seg a Sex · 8h às 18h</li>
-        <li>Sáb · 8h às 12h</li>
       </ul>
     </div>
     <div>
@@ -742,8 +723,8 @@
       </ul>
     </div>
     <div class="creditos" style="grid-column:1/-1">
-      <span>© <span id="ano">2026</span> Prime Gesso · Gramado, RS</span>
-      <span>Seu ambiente novo começa aqui.</span>
+      <span>© <span id="ano">2026</span> Prime Gesso &amp; Decoração · Gramado, RS</span>
+      <span>Seu projeto, nosso compromisso.</span>
     </div>
   </div>
 </footer>
@@ -759,18 +740,16 @@
 
   document.getElementById('ano').textContent = new Date().getFullYear();
 
-  /* ── topo que encorpa ao rolar + zap que aparece ── */
   var topo = document.getElementById('topo');
   var zap  = document.getElementById('zap');
   function aoRolar(){
     var y = window.scrollY;
-    topo.classList.toggle('fixo', y > 40);
+    topo.classList.toggle('solido', y > 40);
     zap.classList.toggle('on', y > window.innerHeight * .7);
   }
   addEventListener('scroll', aoRolar, { passive:true });
   aoRolar();
 
-  /* ── revelação das seções ── */
   var alvos = document.querySelectorAll('.revela');
   if ('IntersectionObserver' in window && !parado){
     var obs = new IntersectionObserver(function(ents){
@@ -783,7 +762,7 @@
     alvos.forEach(function(el){ el.classList.add('vista'); });
   }
 
-  /* ── comparador antes/depois ── */
+  /* ── comparador obra bruta / acabamento ── */
   var comp = document.getElementById('comparador');
   var faixa = document.getElementById('faixa');
   if (comp && faixa){
@@ -795,16 +774,12 @@
       x = Math.max(0, Math.min(100, x));
       faixa.value = x; cortar(x);
     }
-    comp.addEventListener('pointerdown', function(e){
-      comp.setPointerCapture(e.pointerId); porPonteiro(e);
-    });
-    comp.addEventListener('pointermove', function(e){
-      if (e.buttons) porPonteiro(e);
-    });
+    comp.addEventListener('pointerdown', function(e){ comp.setPointerCapture(e.pointerId); porPonteiro(e); });
+    comp.addEventListener('pointermove', function(e){ if (e.buttons) porPonteiro(e); });
     cortar(50);
   }
 
-  /* ── seção assinatura: o desenho da sanca ganha massa e acende ── */
+  /* ── o desenho da sanca ganha massa e acende ── */
   var palco = document.getElementById('palco');
   var painelLuz = document.querySelector('.painel');
   if (palco && painelLuz && !parado){
@@ -819,19 +794,16 @@
     var cota4  = document.getElementById('cota4');
     var passos = palco.querySelectorAll('.passo');
 
-    // cada traço se desenha sozinho, no seu tempo
     function preparar(el){
       var c = el.getTotalLength();
-      el.style.strokeDasharray  = c;
+      el.style.strokeDasharray = c;
       el.style.strokeDashoffset = c;
       return c;
     }
     var cEstrutura = preparar(estrutura);
     var cPerfil    = preparar(perfil);
 
-    function faixa(p, ini, fim){
-      return Math.max(0, Math.min(1, (p - ini) / (fim - ini)));
-    }
+    function faixaEntre(p, ini, fim){ return Math.max(0, Math.min(1, (p - ini) / (fim - ini))); }
 
     var pedido = false;
     function pintar(){
@@ -842,20 +814,17 @@
       var estatico = total <= 0 || getComputedStyle(painelLuz).position !== 'sticky';
       var p = estatico ? 1 : Math.max(0, Math.min(1, (-r.top) / total));
 
-      // 1 · estrutura: os pendurais descem da laje
-      var a = faixa(p, .02, .24);
+      var a = faixaEntre(p, .02, .24);
       estrutura.style.strokeDashoffset = cEstrutura * (1 - a);
-      cota1.style.opacity = a > .85 && p < .60 ? 1 : 0;
+      cota1.style.opacity = (a > .85 && p < .60) ? 1 : 0;
 
-      // 2 · fechamento: o perfil do gesso se desenha e a massa preenche
-      var b = faixa(p, .26, .52);
+      var b = faixaEntre(p, .26, .52);
       perfil.style.strokeDashoffset = cPerfil * (1 - b);
-      massa.style.opacity = faixa(p, .40, .62);
+      massa.style.opacity = faixaEntre(p, .40, .62);
       cota4.style.opacity = b > .9 ? 1 : 0;
 
-      // 3 · a luz acende e lava a laje
-      var c = faixa(p, .64, .92);
-      fita.setAttribute('fill', c > .12 ? '#FFD2A1' : '#2A2A32');
+      var c = faixaEntre(p, .64, .92);
+      fita.setAttribute('fill', c > .12 ? '#FFD6A8' : '#22404F');
       luz.style.opacity = c;
       cota2.style.opacity = c > .3 ? 1 : 0;
       cota3.style.opacity = c > .65 ? 1 : 0;
@@ -873,7 +842,6 @@
     palco.querySelectorAll('.passo').forEach(function(el){ el.classList.add('on'); });
   }
 
-  /* ── só um <details> aberto por vez ── */
   var itens = document.querySelectorAll('.faq .item');
   itens.forEach(function(d){
     d.addEventListener('toggle', function(){
