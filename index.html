@@ -118,17 +118,127 @@
     position:relative; min-height:100svh; display:flex; align-items:flex-end;
     color:var(--gesso); overflow:hidden; padding:150px 0 56px;
     background:
-      radial-gradient(130% 90% at 76% 8%, rgba(233,167,101,.22), transparent 56%),
+      radial-gradient(130% 90% at 76% 8%, rgba(233,167,101,.20), transparent 56%),
       linear-gradient(170deg, var(--azul-3) 0%, var(--azul-2) 38%, var(--azul) 100%);
   }
-  /* a marca dele, gigante e fantasma, virando textura de fundo */
+  /* ── a massa de gesso sendo desempenada: vitrine com moldura, à direita ── */
+  .vitrine{
+    position:absolute; z-index:2; overflow:hidden;
+    right:0; top:50%; transform:translateY(-50%);
+    width:min(36%, 400px); aspect-ratio:3/4;
+    border:1px solid rgba(244,242,238,.18); border-radius:3px;
+    box-shadow:0 34px 90px rgba(0,0,0,.5);
+    background:url('img/massa-poster.jpg') center/cover no-repeat;
+  }
+  .vitrine video{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(.05) brightness(.94) contrast(1.05) sepia(.14) saturate(1.12);
+  }
+  /* assenta a vitrine no azul, sem apagar a massa */
+  .vitrine::after{
+    content:\;position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(to top, rgba(15,39,51,.68) 0%, rgba(15,39,51,.10) 40%, transparent 64%),
+      linear-gradient(205deg, rgba(233,167,101,.20), transparent 46%),
+      linear-gradient(105deg, rgba(31,74,94,.20), transparent 42%);
+  }
+  .vitrine .etiqueta{
+    position:absolute;left:14px;bottom:13px;z-index:2;
+    font-family:var(--display);font-size:9.5px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:rgba(244,242,238,.9);
+  }
+  @media (prefers-reduced-motion:reduce){ .vitrine video{display:none} }
+  @media (max-width:980px){
+    .vitrine{width:40%;max-width:290px}
+  }
+  @media (max-width:760px){
+    .vitrine{
+      position:static;transform:none;width:100%;max-width:none;
+      aspect-ratio:16/10;margin-top:30px;
+    }
+  }
+
+  /* a marca dele, fantasma, no canto */
   .hero .fantasma{
-    position:absolute; right:-6%; top:48%; transform:translateY(-50%);
-    height:min(96%, 760px); color:var(--gesso); opacity:.055; pointer-events:none; z-index:0;
+    position:absolute; right:-10%; bottom:6%;
+    height:min(46%, 330px); color:var(--gesso); opacity:.05; pointer-events:none; z-index:2;
+  }
+
+  /* ── o teto dele: o rasgo de luz que se constrói e acende ── */
+  .teto{
+    position:absolute; pointer-events:none;
+    right:30%; top:8%; width:min(34%, 400px); z-index:1; opacity:.85; aspect-ratio:600/400;
+  }
+  .teto svg{width:100%;height:100%;overflow:visible}
+  /* 15s de ciclo: guias → o traço se desenha → a luz acende → segura → apaga */
+  .t-guia{
+    fill:none;stroke:var(--gesso);stroke-width:1;opacity:0;
+    stroke-dasharray:3 7;
+    animation:guiaVem 15s ease-in-out infinite;
+  }
+  @keyframes guiaVem{
+    0%{opacity:0} 8%,80%{opacity:.16} 95%,100%{opacity:0}
+  }
+  .t-plano{
+    fill:var(--gesso);opacity:0;
+    animation:planoVem 15s ease-in-out infinite;
+  }
+  @keyframes planoVem{
+    0%,26%{opacity:0} 40%,80%{opacity:.035} 95%,100%{opacity:0}
+  }
+  .t-traco{
+    fill:none;stroke:var(--gesso);stroke-width:2.4;stroke-linejoin:round;
+    stroke-dasharray:1500;stroke-dashoffset:1500;opacity:.55;
+    animation:tracoDesenha 15s cubic-bezier(.5,0,.2,1) infinite;
+  }
+  @keyframes tracoDesenha{
+    0%,8%{stroke-dashoffset:1500;opacity:.55}
+    30%{stroke-dashoffset:0;opacity:.55}
+    40%,82%{stroke-dashoffset:0;opacity:0}
+    95%,100%{stroke-dashoffset:0;opacity:0}
+  }
+  /* o rasgo aceso: núcleo branco-quente + florada */
+  .t-aceso{
+    fill:none;stroke:#FFF4E6;stroke-width:2.6;stroke-linejoin:round;
+    opacity:0;
+    animation:acende 15s ease-in-out infinite;
+  }
+  .t-flor{
+    fill:none;stroke:var(--luz-forte);stroke-width:9;stroke-linejoin:round;
+    filter:blur(9px);opacity:0;
+    animation:florada 15s ease-in-out infinite;
+  }
+  @keyframes acende{
+    0%,30%{opacity:0} 41%,80%{opacity:1} 94%,100%{opacity:0}
+  }
+  @keyframes florada{
+    0%,30%{opacity:0} 41%{opacity:.85} 55%{opacity:.6} 70%{opacity:.8}
+    80%{opacity:.6} 94%,100%{opacity:0}
+  }
+  .t-spot{
+    fill:#FFF4E6;opacity:0;filter:drop-shadow(0 0 7px var(--luz-forte));
+    animation:spotAcende 15s ease-in-out infinite;
+  }
+  .t-spot:nth-of-type(1){animation-delay:0s}
+  .t-spot:nth-of-type(2){animation-delay:.28s}
+  .t-spot:nth-of-type(3){animation-delay:.56s}
+  .t-spot:nth-of-type(4){animation-delay:.84s}
+  @keyframes spotAcende{
+    0%,44%{opacity:0} 52%,78%{opacity:.9} 92%,100%{opacity:0}
+  }
+  /* grão de gesso por cima de tudo */
+  .grao{
+    position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.42;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.36'/></svg>");
+  }
+  @media (max-width:860px){
+    .teto{width:66%;right:-8%;top:0.5%;opacity:.42}
+    .hero .fantasma{display:none}
   }
   /* a luz que varre a superfície — é o que o gesso faz */
   .varredura{
-    position:absolute; inset:-25% -45%; z-index:1; pointer-events:none;
+    position:absolute; inset:-25% -45%; z-index:3; pointer-events:none;
     background:linear-gradient(102deg,
       transparent 36%, rgba(255,214,168,.05) 43%,
       rgba(255,214,168,.26) 50%,
@@ -141,14 +251,14 @@
     58%,100%{transform:translate3d(52%,0,0)}
   }
   .hero::after{
-    content:"";position:absolute;inset:auto 0 0;height:36%;z-index:1;pointer-events:none;
+    content:"";position:absolute;inset:auto 0 0;height:36%;z-index:3;pointer-events:none;
     background:linear-gradient(to top, var(--azul), transparent);
   }
 
-  .hero .env{position:relative;z-index:2}
+  .hero .env{position:relative;z-index:4}
   .hero h1{
     font-size:clamp(38px,7.2vw,86px); font-weight:300; letter-spacing:-.035em;
-    max-width:15ch; margin:26px 0 0;
+    max-width:15ch; margin:26px 0 0; overflow-wrap:break-word;
   }
   .hero h1 b{font-weight:600;color:var(--luz-forte)}
   .linha{display:block;overflow:hidden}
@@ -159,6 +269,11 @@
   .hero p.sub{
     max-width:48ch;margin-top:24px;font-size:clamp(15px,1.7vw,18px);
     color:var(--claro-fraco);animation:aparecer 1s ease .55s both;
+  }
+  /* so onde a vitrine fica ao lado o texto precisa recuar */
+  @media (min-width:761px){
+    .hero h1{max-width:min(15ch,56%)}
+    .hero p.sub{max-width:min(48ch,54%)}
   }
   .hero .acoes{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px;animation:aparecer 1s ease .72s both}
 
@@ -423,7 +538,29 @@
     <path fill="currentColor" d="M24.95 90V75L26 60l1.05 15V90ZM29.45 90V67L30.5 52l1.05 15V90ZM33.95 90V60L35 45l1.05 15V90ZM38.45 90V55L39.5 40l1.05 15V90ZM43.95 90V37L45 22l1.05 15V90ZM47.95 90V26L49 11l1.05 15V90ZM51.95 90V21L53 6l1.05 15V90ZM55.95 90V28L57 13l1.05 15V90ZM59.95 90V41L61 26l1.05 15V90ZM65.95 90V55L67 40l1.05 15V90ZM70.45 90V61L71.5 46l1.05 15V90ZM74.95 90V68L76 53l1.05 15V90ZM79.45 90V76L80.5 61l1.05 15V90Z"/>
     <path d="M6 90.7H100.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
   </svg>
+  <!-- o teto de gesso visto de baixo: o rasgo se desenha e acende, como nas obras dele -->
+  <div class="teto" aria-hidden="true">
+    <svg viewBox="0 0 600 400">
+      <!-- a laje/forro em volta do rasgo -->
+      <path class="t-plano" d="M100 40H500L430 300H170Z"/>
+      <!-- guias de marcação, como riscar o teto antes de cortar -->
+      <g class="t-guia">
+        <path d="M100 40H500M170 300H430M100 40L170 300M500 40L430 300"/>
+        <path d="M300 10V330M40 170H560"/>
+      </g>
+      <!-- o perfil do rasgo, em perspectiva, igual ao teto do quarto -->
+      <path class="t-traco" d="M100 40H500L430 300H170Z"/>
+      <path class="t-flor"  d="M100 40H500L430 300H170Z"/>
+      <path class="t-aceso" d="M100 40H500L430 300H170Z"/>
+      <!-- spots embutidos -->
+      <circle class="t-spot" cx="200" cy="105" r="5.5"/>
+      <circle class="t-spot" cx="400" cy="105" r="5.5"/>
+      <circle class="t-spot" cx="227" cy="240" r="5.5"/>
+      <circle class="t-spot" cx="373" cy="240" r="5.5"/>
+    </svg>
+  </div>
   <div class="varredura" aria-hidden="true"></div>
+  <div class="grao" aria-hidden="true"></div>
   <div class="env">
     <p class="rotulo">Gramado · Canela · Serra Gaúcha</p>
     <h1>
@@ -437,6 +574,11 @@
         Pedir orçamento
       </a>
       <a class="btn vazado grande" href="#obras">Ver obras</a>
+    </div>
+    <div class="vitrine">
+      <video src="img/massa.mp4" poster="img/massa-poster.jpg" autoplay muted loop playsinline preload="metadata"
+             aria-label="Massa de gesso sendo desempenada até ficar lisa"></video>
+      <span class="etiqueta">Massa · acabamento liso</span>
     </div>
     <div class="regioes">
       <span><b>Atendemos</b></span>
