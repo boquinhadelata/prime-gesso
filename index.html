@@ -121,41 +121,21 @@
       radial-gradient(130% 90% at 76% 8%, rgba(233,167,101,.20), transparent 56%),
       linear-gradient(170deg, var(--azul-3) 0%, var(--azul-2) 38%, var(--azul) 100%);
   }
-  /* ── a massa de gesso sendo desempenada: vitrine com moldura, à direita ── */
-  .vitrine{
-    position:absolute; z-index:2; overflow:hidden;
-    right:0; top:50%; transform:translateY(-50%);
-    width:min(36%, 400px); aspect-ratio:3/4;
-    border:1px solid rgba(244,242,238,.18); border-radius:3px;
-    box-shadow:0 34px 90px rgba(0,0,0,.5);
-    background:url('img/massa-poster.jpg') center/cover no-repeat;
+  /* ── a textura da massa desempenada, em luz rasante, como fundo ── */
+  .hero .fundo{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero .fundo img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(.38) brightness(.48) contrast(1.16);
+    transform:scale(1.06);
+    animation:respirar 28s ease-in-out infinite alternate;
   }
-  .vitrine video{
-    width:100%;height:100%;object-fit:cover;display:block;
-    filter:grayscale(.05) brightness(.94) contrast(1.05) sepia(.14) saturate(1.12);
-  }
-  /* assenta a vitrine no azul, sem apagar a massa */
-  .vitrine::after{
-    content:\;position:absolute;inset:0;pointer-events:none;
+  @keyframes respirar{ to{transform:scale(1.14)} }
+  /* o azul da marca assentando a foto */
+  .hero .fundo::after{
+    content:"";position:absolute;inset:0;
     background:
-      linear-gradient(to top, rgba(15,39,51,.68) 0%, rgba(15,39,51,.10) 40%, transparent 64%),
-      linear-gradient(205deg, rgba(233,167,101,.20), transparent 46%),
-      linear-gradient(105deg, rgba(31,74,94,.20), transparent 42%);
-  }
-  .vitrine .etiqueta{
-    position:absolute;left:14px;bottom:13px;z-index:2;
-    font-family:var(--display);font-size:9.5px;font-weight:600;
-    letter-spacing:.2em;text-transform:uppercase;color:rgba(244,242,238,.9);
-  }
-  @media (prefers-reduced-motion:reduce){ .vitrine video{display:none} }
-  @media (max-width:980px){
-    .vitrine{width:40%;max-width:290px}
-  }
-  @media (max-width:760px){
-    .vitrine{
-      position:static;transform:none;width:100%;max-width:none;
-      aspect-ratio:16/10;margin-top:30px;
-    }
+      linear-gradient(to top, var(--azul) 4%, rgba(15,39,51,.74) 38%, rgba(22,56,71,.32) 72%, rgba(15,39,51,.56) 100%),
+      radial-gradient(120% 85% at 78% 12%, rgba(233,167,101,.20), transparent 58%);
   }
 
   /* a marca dele, fantasma, no canto */
@@ -269,11 +249,6 @@
   .hero p.sub{
     max-width:48ch;margin-top:24px;font-size:clamp(15px,1.7vw,18px);
     color:var(--claro-fraco);animation:aparecer 1s ease .55s both;
-  }
-  /* so onde a vitrine fica ao lado o texto precisa recuar */
-  @media (min-width:761px){
-    .hero h1{max-width:min(15ch,56%)}
-    .hero p.sub{max-width:min(48ch,54%)}
   }
   .hero .acoes{display:flex;flex-wrap:wrap;gap:13px;margin-top:34px;animation:aparecer 1s ease .72s both}
 
@@ -538,6 +513,7 @@
     <path fill="currentColor" d="M24.95 90V75L26 60l1.05 15V90ZM29.45 90V67L30.5 52l1.05 15V90ZM33.95 90V60L35 45l1.05 15V90ZM38.45 90V55L39.5 40l1.05 15V90ZM43.95 90V37L45 22l1.05 15V90ZM47.95 90V26L49 11l1.05 15V90ZM51.95 90V21L53 6l1.05 15V90ZM55.95 90V28L57 13l1.05 15V90ZM59.95 90V41L61 26l1.05 15V90ZM65.95 90V55L67 40l1.05 15V90ZM70.45 90V61L71.5 46l1.05 15V90ZM74.95 90V68L76 53l1.05 15V90ZM79.45 90V76L80.5 61l1.05 15V90Z"/>
     <path d="M6 90.7H100.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
   </svg>
+  <div class="fundo" aria-hidden="true"><img src="img/textura-gesso.jpg" alt="" fetchpriority="high"></div>
   <!-- o teto de gesso visto de baixo: o rasgo se desenha e acende, como nas obras dele -->
   <div class="teto" aria-hidden="true">
     <svg viewBox="0 0 600 400">
@@ -574,11 +550,6 @@
         Pedir orçamento
       </a>
       <a class="btn vazado grande" href="#obras">Ver obras</a>
-    </div>
-    <div class="vitrine">
-      <video src="img/massa.mp4" poster="img/massa-poster.jpg" autoplay muted loop playsinline preload="metadata"
-             aria-label="Massa de gesso sendo desempenada até ficar lisa"></video>
-      <span class="etiqueta">Massa · acabamento liso</span>
     </div>
     <div class="regioes">
       <span><b>Atendemos</b></span>
